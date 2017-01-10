@@ -1,6 +1,6 @@
 class JourneyLog
 
-  attr_reader :journeys, :entry_station, :current_list
+  attr_reader :journeys, :entry_station, :view_journey
 
   def initialize
     @entry_station = nil
@@ -12,18 +12,17 @@ class JourneyLog
   def journey_start(card, station)
     @entry_station = station.station_name
     @entry_zone = station.zone
-    current_journey(@entry_station, @entry_zone, true)
     @card = card
+    current_journey(@entry_station, @entry_zone, true)
   end
 
   def journey_end(card, station)
     Journey.new.fare(card, @entry_station)
     current_journey(station.station_name, station.zone, false)
-    @entry_station = nil
   end
 
-  def record_journey(exit_name, exit_zone)
-    @journeys["Journey #{@journey_count += 1}"] = ["#{@entry_zone}: #{@entry_station}", "#{exit_zone}: #{exit_name}"]
+  def record_journey
+    @journeys["Journey #{@journey_count += 1}"] = "Outbound: #{@outbound}; Inbound: #{@inbound}"
   end
 
   def report_journey
@@ -36,13 +35,10 @@ class JourneyLog
     true if @entry_station
   end
 
-  def current_journey(name, zone, outgoing)
-    if outgoing
-    @outbound = "#{zone}: #{name}"
-    else
-    @inbound = "#{zone}: #{name}"
-    end
-    @current_list = [@outbound, @inbound]
+  def current_journey(name, zone, outbound)
+    outbound ? @outbound = "#{zone.to_s.gsub!("_", " ").capitalize} - #{name.to_s.capitalize}" : @inbound = "#{zone.to_s.gsub!("_", " ").capitalize} - #{name.to_s.capitalize}"
+    @entry_station = nil
+    record_journey if !outbound
   end
 
 end
