@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/rob/Drive/makers/proper/week2/oystercard/spec/journey_log_spec.rb": [
+      "/home/ubuntu/workspace/Projects/Week-2/oystercard/spec/journey_log_spec.rb": [
         1,
         null,
         1,
@@ -33,7 +33,7 @@
         null,
         null
       ],
-      "/Users/rob/Drive/makers/proper/week2/oystercard/lib/journey_log.rb": [
+      "/home/ubuntu/workspace/Projects/Week-2/oystercard/lib/journey_log.rb": [
         1,
         null,
         1,
@@ -60,20 +60,13 @@
         1,
         6,
         6,
+        6,
         null,
-        null,
-        1,
-        0,
         null,
         null,
         1,
         null,
         1,
-        0,
-        null,
-        null,
-        1,
-        11,
         11,
         11,
         11,
@@ -81,7 +74,7 @@
         null,
         null
       ],
-      "/Users/rob/Drive/makers/proper/week2/oystercard/spec/journey_spec.rb": [
+      "/home/ubuntu/workspace/Projects/Week-2/oystercard/spec/journey_spec.rb": [
         1,
         null,
         1,
@@ -124,29 +117,31 @@
         4,
         null,
         null,
+        null
+      ],
+      "/home/ubuntu/workspace/Projects/Week-2/oystercard/lib/journey.rb": [
+        1,
         null,
+        1,
+        1,
+        null,
+        1,
+        6,
+        6,
+        null,
+        null,
+        1,
+        null,
+        1,
+        8,
+        null,
+        null,
+        1,
+        6,
         null,
         null
       ],
-      "/Users/rob/Drive/makers/proper/week2/oystercard/lib/journey.rb": [
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        6,
-        6,
-        null,
-        null,
-        1,
-        null,
-        1,
-        6,
-        null,
-        null
-      ],
-      "/Users/rob/Drive/makers/proper/week2/oystercard/spec/oystercard_spec.rb": [
+      "/home/ubuntu/workspace/Projects/Week-2/oystercard/spec/oystercard_spec.rb": [
         1,
         null,
         1,
@@ -194,7 +189,7 @@
         null,
         null
       ],
-      "/Users/rob/Drive/makers/proper/week2/oystercard/lib/oystercard.rb": [
+      "/home/ubuntu/workspace/Projects/Week-2/oystercard/lib/oystercard.rb": [
         1,
         1,
         1,
@@ -206,6 +201,7 @@
         1,
         null,
         1,
+        14,
         14,
         14,
         14,
@@ -226,7 +222,7 @@
         null,
         null
       ],
-      "/Users/rob/Drive/makers/proper/week2/oystercard/lib/station.rb": [
+      "/home/ubuntu/workspace/Projects/Week-2/oystercard/lib/station.rb": [
         1,
         null,
         1,
@@ -243,7 +239,7 @@
         null,
         null
       ],
-      "/Users/rob/Drive/makers/proper/week2/oystercard/spec/station_spec.rb": [
+      "/home/ubuntu/workspace/Projects/Week-2/oystercard/spec/station_spec.rb": [
         1,
         null,
         1,
@@ -256,6 +252,6 @@
         null
       ]
     },
-    "timestamp": 1484154961
+    "timestamp": 1484157483
   }
 }
