@@ -1,5 +1,6 @@
 require_relative 'station'
 require_relative 'journey'
+require_relative 'journey_log'
 
 class Oystercard
   attr_reader :journey
@@ -7,7 +8,7 @@ class Oystercard
 
   LIMIT = 90.0
 
-  def initialize(journey = Journey.new)
+  def initialize(journey = JourneyLog.new)
     @balance = 5.00
     @journey = journey
   end
@@ -25,7 +26,4 @@ class Oystercard
   def touch_out(card = self, station = Station.new)
     @journey.journey_end(card, station)
   end
-
-
-
 end
