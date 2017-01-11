@@ -1,6 +1,6 @@
 class JourneyLog
 
-  attr_reader :journeys, :entry_station, :view_journey
+  attr_reader :journeys, :entry_station, :view_journey, :trip
 
   def initialize
     @entry_station = nil
@@ -17,12 +17,13 @@ class JourneyLog
   end
 
   def journey_end(card, station)
-    Journey.new.fare(card, @entry_station)
+    Journey.new.fare(card, @entry_station, @entry_zone, @exit_zone)
     current_journey(station.station_name, station.zone, false)
   end
 
   def record_journey
     @journeys["Journey #{@journey_count += 1}"] = "Outbound: #{@outbound}; Inbound: #{@inbound}"
+    @entry_station = nil
   end
 
   def report_journey
@@ -37,8 +38,9 @@ class JourneyLog
 
   def current_journey(name, zone, outbound)
     outbound ? @outbound = "#{zone.to_s.gsub!("_", " ").capitalize} - #{name.to_s.capitalize}" : @inbound = "#{zone.to_s.gsub!("_", " ").capitalize} - #{name.to_s.capitalize}"
-    @entry_station = nil
     record_journey if !outbound
+    outbound ? @outbound : @inbound
+    @trip = @journeys.values.last
   end
 
 end
