@@ -17,9 +17,7 @@ describe Journey do
   end
 
   it 'should deduct money from the card' do
-    ded_amnt = Journey::FLAT_FEE
     card.top_up(10)
-    orig_amnt = card.balance
     card.touch_in
     expect{card.touch_out}.to change {card.balance}
   end
@@ -27,14 +25,13 @@ describe Journey do
   def calculate_fare(first_station, end_station)
     first_zone = first_station.zone
     end_zone = end_station.zone
-    (first_zone.to_s.gsub!("zone_", "").to_i.abs - end_zone.to_s.gsub!("zone_", "").to_i.abs * Journey::FLAT_FEE) + Journey::FLAT_FEE
+    ((first_zone.to_s.gsub!("zone_", "").to_i - end_zone.to_s.gsub!("zone_", "").to_i).abs * Journey::FLAT_FEE) + Journey::FLAT_FEE
   end
 
   it 'calculates the fare based on the number of zones crossed' do
     first_station = Station.new
     end_station = Station.new
     card.top_up(10)
-    orig_amnt = card.balance
     card.touch_in(card, first_station)
     zones_crossed = calculate_fare(first_station, end_station)
     expect{card.touch_out(card, end_station)}.to change {card.balance}.by(zones_crossed)

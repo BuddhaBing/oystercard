@@ -9,12 +9,13 @@ class Journey
   end
 
   private
-  
+
   def convert_to_int(zone)
-    zone.to_s.gsub!("zone_", "").to_i.abs
+    zone.to_s.gsub!("Zone ", "").to_i
   end
 
   def deduct(card, fee)
     card.balance -= fee
   end
+
 end

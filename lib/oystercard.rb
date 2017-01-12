@@ -2,8 +2,10 @@ require_relative 'station'
 require_relative 'journey'
 require_relative 'journey_log'
 
+# TODO create Printer class and iterate through journeys to output the hash as a string
+
 class Oystercard
-  attr_reader :journeys, :journey, :journey_log
+  attr_reader :journeys
   attr_accessor :balance
 
   LIMIT = 90.0
@@ -12,7 +14,7 @@ class Oystercard
     @balance = 5.00
     @journey_log = journey_log
     @journeys = journey_log.journeys
-    @journey = journey_log.journeys.values.last
+    @journey = journey_log.current_journey
   end
 
   def top_up(add_money)
@@ -21,6 +23,7 @@ class Oystercard
   end
 
   def touch_in(card = self, station = Station.new)
+    #@journey_log.journey_end(card, station, true) if @journey_log.entry_station
     raise 'Insufficient balance on card.' if @balance < Journey::PENALTY_FARE
     @journey_log.journey_start(card, station)
   end
