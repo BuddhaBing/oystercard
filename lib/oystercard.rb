@@ -3,6 +3,7 @@ require_relative 'journey'
 require_relative 'journey_log'
 
 # TODO create Printer class and iterate through journeys to output the hash as a string
+# TODO stop passing card around so much
 
 class Oystercard
   attr_reader :journeys

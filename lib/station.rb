@@ -1,5 +1,8 @@
 class Station
 
+  # TODO allow to pass in station name. Will help with failing test.
+        # Need to iterate through hash and key correct zone
+
   STATIONS = {"Zone 1": %w(Old\ Street Angel Pimlico Tower\ Gateway),
               "Zone 2": %w(Stoke\ Newington Stratford Stratford\ High\ Street Stratford\ International),
               "Zone 3": %w(Stamford\ Hill Star\ Lane Stonebridge\ Park Stratford),
