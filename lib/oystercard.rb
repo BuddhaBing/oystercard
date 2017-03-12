@@ -1,9 +1,6 @@
 require_relative 'station'
 require_relative 'journey'
 require_relative 'journey_log'
-require 'pry'
-
-# TODO deduct penalty if user does not touch out
 
 class Oystercard
   attr_reader :journeys, :journey, :journey_log
@@ -39,10 +36,3 @@ class Oystercard
   end
 
 end
-
-#card = Oystercard.new
-#card.top_up(50)
-#card.touch_in
-#card.touch_out
-#binding.pry
-#card.touch_out

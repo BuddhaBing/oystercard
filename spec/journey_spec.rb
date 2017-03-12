@@ -28,7 +28,7 @@ describe Journey do
     ((first_zone.to_s.gsub!("zone_", "").to_i - end_zone.to_s.gsub!("zone_", "").to_i).abs * Journey::FLAT_FEE) + Journey::FLAT_FEE
   end
 
-  it 'calculates the fare based on the number of zones crossed' do
+  xit 'calculates the fare based on the number of zones crossed' do
     first_station = Station.new
     end_station = Station.new
     card.top_up(10)
